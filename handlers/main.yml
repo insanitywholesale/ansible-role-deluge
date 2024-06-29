@@ -1,11 +1,23 @@
 ---
-- name: restart deluged
+- name: Stop deluged
+  ansible.builtin.systemd:
+    name: deluged
+    state: stopped
+  become: true
+
+- name: Stop deluge-web
+  ansible.builtin.systemd:
+    name: deluge-web
+    state: stopped
+  become: true
+
+- name: Restart deluged
   ansible.builtin.systemd:
     name: deluged
     state: restarted
   become: true
 
-- name: restart deluge-web
+- name: Restart deluge-web
   ansible.builtin.systemd:
     name: deluge-web
     state: restarted
