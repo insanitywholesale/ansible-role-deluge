@@ -31,16 +31,8 @@
     mode: "0644"
   check_mode: true
   become: true
-  register: _deluge_core_conf
-  tags:
-    - deluge_config
-
-- name: Deluged config file needs updating. deluge should be stopped beforehand
-  ansible.builtin.service:
-    name: deluged
-    state: stopped
-  become: true
-  when: _deluge_core_conf is changed
+  notify: Stop deluged
+  changed_when: false
   tags:
     - deluge_config
 
@@ -66,17 +58,7 @@
     mode: "0644"
   check_mode: true
   become: true
-  register: _deluge_web_conf
-  changed_when: false
-  tags:
-    - deluge_config
-
-- name: Deluge-web config file needs updating. deluge-web should be stopped beforehand
-  ansible.builtin.service:
-    name: deluge-web
-    state: stopped
-  become: true
-  when: _deluge_web_conf is changed
+  notify: Stop deluge-web
   changed_when: false
   tags:
     - deluge_config
