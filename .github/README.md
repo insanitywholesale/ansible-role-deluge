@@ -1,4 +1,4 @@
-<h4 align="center">An Ansible role for creating an MOTD banner when logging into yout server.</h4>
+<h4 align="center">An Ansible role for deploying Deluge 2.x</h4>
 
 <p align="center">
     <a href="https://github.com/totaldebug/ansible-role-deluge/commits/master">
