@@ -8,13 +8,6 @@ galaxy_info:
   company: Total Debug
   license: license (BSD, MIT)
   min_ansible_version: "2.4"
-  platforms:
-    - name: Debian
-      versions:
-        - all
-    - name: Ubuntu
-      versions:
-        - all
   galaxy_tags:
     - deluge
     - deluge2
